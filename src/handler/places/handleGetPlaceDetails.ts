@@ -3,8 +3,12 @@ import { Request, Response } from "express";
 import axios from "axios";
 
 const handleGetPlaceDetails = async (req: Request, res: Response) => {
-  const address =
-    "Hitachino Brewing Lab, 1 Chome-２５-4 Kanda Sudacho, Chiyoda City, Tokyo, Japan";
+  // TODO: validation
+  const address = req.query.address;
+
+  if (!address) {
+    return res.send(400);
+  }
 
   const data = await axios.get(
     `https://maps.googleapis.com/maps/api/place/findplacefromtext/json`,
