@@ -13,6 +13,8 @@ datasource db {
 model User {
   username String   @id @unique
   password String
+  email    String   @unique
+  isLocal  Boolean  @default(false)
   verified Boolean  @default(false)
   review   Review[]
 }

@@ -16,7 +16,7 @@ const handleGetPlaceDetails = async (req: Request, res: Response) => {
       params: {
         input: address,
         inputtype: "textquery",
-        key: "GOOGLEMAPSKEYHERE",
+        key: "AIzaSyCyiQahOYzvywvYvXrPsftGUb5-srTFJJo",
         fields: "name,price_level,rating,geometry",
       },
     }

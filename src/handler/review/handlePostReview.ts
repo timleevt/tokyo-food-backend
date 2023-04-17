@@ -16,7 +16,6 @@ const handlePostReview = async (req: Request, res: Response) => {
     const review = await postReview(data);
     res.send({review});
   } catch (e) {
-    console.log(e);
     return res.status(500).json({ error: "internal server error" });
   }
 };
