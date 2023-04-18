@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import express from "express";
 import handleGetReviews from "./handler/review/handleGetReviews";
 import handlePostReview from "./handler/review/handlePostReview";

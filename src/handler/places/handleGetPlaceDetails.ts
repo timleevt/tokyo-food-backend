@@ -2,6 +2,8 @@
 import { Request, Response } from "express";
 import axios from "axios";
 
+require('dotenv').config();
+
 const handleGetPlaceDetails = async (req: Request, res: Response) => {
   // TODO: validation
   const address = req.query.address;
@@ -16,7 +18,7 @@ const handleGetPlaceDetails = async (req: Request, res: Response) => {
       params: {
         input: address,
         inputtype: "textquery",
-        key: "AIzaSyCyiQahOYzvywvYvXrPsftGUb5-srTFJJo",
+        key: process.env.GOOGLE_MAPS_API,
         fields: "name,price_level,rating,geometry",
       },
     }
