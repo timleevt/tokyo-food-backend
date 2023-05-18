@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { z } from "zod";
 import getUserPw from "../../db/getUserPw";
 import bcrypt from "bcrypt";
+const jwt = require('jsonwebtoken');
 
 const postLoginSchema = z.object({
   username: z.string(),
@@ -21,6 +22,11 @@ const handlePostUserLogin = async (req: Request, res: Response) => {
 
   try {
     if (await bcrypt.compare(password, pwFromDb)) {
+      // const token = jwt.sign({username}, process.env.JWT_ACCESS_TOKEN_SECRET, {
+      //   expiresIn: 300,
+      // });
+
+
       res.send("Success!");
     } else {
       res.status(500).send("Incorrect password");

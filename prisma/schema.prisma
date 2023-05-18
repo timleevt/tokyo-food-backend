@@ -11,18 +11,20 @@ datasource db {
 }
 
 model User {
-  username String   @id @unique
-  password String
-  email    String   @unique
-  isLocal  Boolean  @default(false)
-  verified Boolean  @default(false)
-  review   Review[]
+  username      String   @id @unique
+  displayName   String?
+  password      String
+  email         String   @unique
+  isLocal       Boolean  @default(false)
+  verified      Boolean  @default(false)
+  profilePicUrl String?
+  review        Review[]
 }
 
 model Review {
   id             Int      @id @default(autoincrement())
   name           String
-  date           DateTime @default(now()) @db.Date
+  date           DateTime @default(now())
   address        String
   review         String   @db.VarChar(280)
   favorited      Boolean  @default(false)
